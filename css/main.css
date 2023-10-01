@@ -1650,7 +1650,7 @@ body {
 .products .cards {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
+  -ms-grid-columns: (1fr)[];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   position: relative;
@@ -1659,7 +1659,7 @@ body {
 
 @media screen and (max-width: 1100px) {
   .products .cards {
-    -ms-grid-columns: (1fr)[3];
+    -ms-grid-columns: (1fr)[];
         grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -1667,7 +1667,7 @@ body {
 @media screen and (max-width: 799px) {
   .products .cards {
     grid-gap: 10px;
-    -ms-grid-columns: (1fr)[2];
+    -ms-grid-columns: (1fr)[];
         grid-template-columns: repeat(2, 1fr);
     padding: 0 20px;
   }

@@ -1,0 +1,320 @@
+<html>
+
+<head>
+    <style>
+     
+     img
+     {
+        width: 100px;
+     }
+     td{
+        text-align:left;
+            padding:10px;
+}
+
+table{
+    border-collapse:collapse;
+    width:105%;
+}
+tr:hover{
+            background-color:#ddd;
+            cursor:pointer;
+        }
+        tr{
+                flex-direction: row;
+                align-items: center ;
+        }
+        .products {
+  background-color: #F7F8FC;
+}
+
+.products__wrapper {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+.products__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 56px;
+}
+
+.products__title {
+  color: #69cec2;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.footer__text {
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 799px) {
+  .footer__text {
+    margin-bottom: 24px;
+  }
+}
+
+.footer__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer__icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 24px;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.footer__icon p {
+  position: absolute;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.footer__icon:last-child {
+  margin-right: 0;
+}
+
+.footer__icon:before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: -webkit-gradient(linear, left top, right top, from(#69cec2), to(#41bbac));
+  background: linear-gradient(90deg, #69cec2 0%, #41bbac 100%);
+  opacity: 1;
+  border-radius: 100%;
+  top: -8px;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.footer__icon span {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.footer__icon.linkedin span {
+  background-image: url("../assets/icon-linkedin.svg");
+}
+
+.footer__icon.dribbble span {
+  background-image: url("../assets/icon-dribbble.svg");
+}
+
+.footer__icon.codepen span {
+  background-image: url("../assets/icon-codepen.svg");
+}
+
+.footer__icon:hover {
+  opacity: 1;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.footer__icon:hover span {
+  opacity: 1;
+}
+
+.footer__icon:hover:before {
+  opacity: 1;
+}
+.footer {
+  width: 100%;
+  height: 80px;
+  bottom: 0;
+  background-color: #1516179d;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px 40px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-top: solid 6px #69cec2;
+}
+
+    </style>
+  
+    <script>
+        var mangsp = [
+            {
+                ma: 1,
+                image: "hinh/img-3.jpg",
+            url: "",
+                ten:"Komi Dress",
+                soluong: 1,
+                gia:2000   
+            }
+            ,
+            {
+                ma: 2,
+                ten: "Komi Dress",
+                image: "hinh/img-1.jpg",
+            url: "",
+                soluong: 3,
+                gia: 2000
+            }
+            ,
+            {
+                ma: 3,
+                image: "hinh/img-2.jpg",
+            url: "",
+                ten: "Komi Dress",
+                soluong: 1,
+                gia: 1000
+            }
+            ,
+            {
+                ma: 4,
+                image: "hinh/img-4.jpg",
+            url: "",
+                ten: "Komi Dress",
+                soluong: 3,
+                gia: 2000
+            }
+            
+        ];
+        function napsp() {
+            var datarow = document.getElementById("datarow");
+            datarow.innerHTML = "";
+            for (var i = 0; i < mangsp.length; i++) {
+                var motsp = mangsp[i]
+                var tr = document.createElement("tr");
+                datarow.appendChild(tr);
+                tr.innerHTML = `
+                <td class="ma">${motsp.ma}</td>
+                <td class="hinh"
+> 
+<img src="${motsp.image}" alt="">
+</td>
+                <td class="ten">${motsp.ten}</td>
+                <td class="soluong">
+                    <input type ="number" value = "${motsp.soluong}"
+                    onchange="suasoluong(${i},this.value )"/>
+                    </td>
+                <td class="gia">${motsp.gia}</td>
+                <td class="tong">${motsp.soluong * motsp.gia}</td>
+                <td class="xoa"><button onclick="xoasp(${i})">xoa</button></td>
+
+              
+           
+     `;
+   tongtien();
+            }
+        } function suasoluong(index, value) {
+            mangsp[index].soluong = value;
+            napsp();
+        }
+        function xoasp(index) {
+            mangsp.splice(index, 1);
+            napsp;
+
+        }
+        function tongtien() {
+            var tong = 0;
+            for (var i = 0; i < mangsp.length; i++) {
+                var tien = mangsp[i].soluong * mangsp[i].gia;
+                tong = tong + tien;
+            }
+            document.getElementById("tongtien").innerHTML = tong;
+        }
+    </script>
+</head>
+<section class="products">
+    <div class="products__wrapper">
+        <div class="products__heading">
+            <h2 class="products__title">Giỏ hàng</h2>
+        </div>
+<body onload="napsp()">
+    
+
+    <table border="1px">
+        <thead>
+            <th>Ma</th>
+            <th>Hinh</th>
+            <th>Ten</th>
+            <th>so luong</th>
+            <th>gia</th>
+            <th>Thanh tien</th>
+            <th>Xoa</th>
+        </thead>
+        <tbody id="datarow">
+            <!-- <tr>
+                <td class="ma">1</td>
+                <td class="hinh"><img src=""> </td>
+                <td class="ten">Vay</td>
+                <td class="soluong">2</td>
+                <td class="gia">11,800,000,00</td>
+                <td class="tong">23,600,000</td>
+                <td class="xoa"><button>xoa</button></td>
+            </tr> 
+        -->
+        </tbody>
+    </table>
+<div>tong tien<span id="tongtien"></span></div>
+</body>
+<footer class="footer">
+    <p class="footer__text">A project made by <a href="" target="_blank" rel="noopener"
+            class="link">Tôi</a></p>
+    <div class="footer__icons">
+
+        <a href="#" target="_blank" rel="noopener"
+            class="footer__icon linkedin"><span></span>
+            <p>Linkedin</p>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener"
+            class="footer__icon dribbble"><span></span>
+            <p>Dribbble</p>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener"
+            class="footer__icon codepen"><span></span>
+            <p>Codepen</p>
+        </a>
+    </div>
+</footer>
+ 
+
+</html>
